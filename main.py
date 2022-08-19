@@ -1,16 +1,35 @@
-# This is a sample Python script.
+class Person:
+    name = ''
+    age = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def walk(self):
+        print("Walking")
+
+    def call(self):
+        print("Calling")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Employed(Person):
+    occupation = 'Unemployment'
+    salary = 0
+
+    def __init__(self, name, age, occupation, salary):
+        Person.__init__(self, name, age)
+        self.occupation = occupation
+        self.salary = salary
+
+    def work_call(self):
+        print("The employed is working")
+        self.walk()
+
+        self.call()
+        print("The employed is calling")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+employed_1 = Employed("Alejandro", 25, "Developer", 2000)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+employed_1.work_call()
